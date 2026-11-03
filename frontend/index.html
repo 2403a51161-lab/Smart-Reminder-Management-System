@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Reminder Management System</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div>
+            <h1>Smart Reminder</h1>
+            <p>Plan your day. Never miss a reminder.</p>
+        </div>
+        <span class="bell">🔔</span>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <h2>Stay organized!</h2>
+            <p>Manage your medicines, appointments and daily activities.</p>
+        </section>
+
+        <section class="panel">
+            <h2>Create a Reminder</h2>
+
+            <form id="reminderForm">
+                <label for="title">Reminder Title</label>
+                <input id="title" type="text"
+                       placeholder="e.g. Take medicine" required maxlength="150">
+
+                <label for="category">Category</label>
+                <select id="category" required>
+                    <option value="">Select category</option>
+                    <option value="Medicine">Medicine</option>
+                    <option value="Appointment">Appointment</option>
+                    <option value="Water">Water Intake</option>
+                    <option value="Study">Study</option>
+                    <option value="Personal">Personal</option>
+                </select>
+
+                <div class="form-row">
+                    <div>
+                        <label for="reminderDate">Date</label>
+                        <input id="reminderDate" type="date" required>
+                    </div>
+                    <div>
+                        <label for="reminderTime">Time</label>
+                        <input id="reminderTime" type="time" required>
+                    </div>
+                </div>
+
+                <label for="notes">Notes (optional)</label>
+                <textarea id="notes" maxlength="1000"
+                          placeholder="Add a short note"></textarea>
+
+                <button id="submitButton" type="submit">
+                    + Add Reminder
+                </button>
+                <p id="formMessage" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="list-heading">
+                <h2>My Reminders</h2>
+                <button id="refreshBtn" class="secondary" type="button">
+                    Refresh
+                </button>
+            </div>
+
+            <label for="filterStatus">Filter reminders</label>
+            <select id="filterStatus">
+                <option value="all">All reminders</option>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+            </select>
+
+            <p id="loadingMessage" role="status"></p>
+            <div id="reminderList" class="reminder-list"></div>
+        </section>
+    </main>
+
+    <footer>Smart Reminder Management System</footer>
+</body>
+</html>
